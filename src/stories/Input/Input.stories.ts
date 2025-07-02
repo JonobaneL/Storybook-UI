@@ -1,27 +1,31 @@
-import Input from "@/components/Input";
-import { ComponentProps } from "react";
-import { Meta, StoryObj } from "@storybook/nextjs-vite";
+import Input from '@/components/Input';
+import { ComponentProps } from 'react';
+import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { fn } from "storybook/test";
+import { fn } from 'storybook/test';
 type StoryProps = ComponentProps<typeof Input>;
 
 const meta: Meta<StoryProps> = {
   component: Input,
-  tags: ["autodocs"],
+  title: 'Components/Input',
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   argTypes: {
     type: {
-      control: "select",
-      options: ["text", "password", "number"],
+      control: 'select',
+      options: ['text', 'password', 'number'],
     },
     clearable: {
-      control: "boolean",
+      control: 'boolean',
     },
     showArrows: {
-      control: "boolean",
+      control: 'boolean',
     },
   },
   args: {
-    value: "",
+    value: '',
     onValueChange: fn(),
   },
 };
@@ -31,28 +35,28 @@ type StoryT = StoryObj<StoryProps>;
 
 export const Text: StoryT = {
   args: {
-    type: "text",
+    type: 'text',
   },
 };
 export const TextClearable: StoryT = {
   args: {
-    type: "text",
+    type: 'text',
     clearable: true,
   },
 };
 export const Password: StoryT = {
   args: {
-    type: "password",
+    type: 'password',
   },
 };
 export const Number: StoryT = {
   args: {
-    type: "number",
+    type: 'number',
   },
 };
 export const NumberWithArrows: StoryT = {
   args: {
-    type: "number",
+    type: 'number',
     showArrows: true,
   },
 };

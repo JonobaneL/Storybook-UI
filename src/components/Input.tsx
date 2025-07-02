@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/classMerge";
-import { EyeIcon, EyeOff, X } from "lucide-react";
-import { forwardRef, InputHTMLAttributes, useState } from "react";
+import { cn } from '@/lib/classMerge';
+import { EyeIcon, EyeOff, X } from 'lucide-react';
+import { forwardRef, InputHTMLAttributes, useState } from 'react';
 
 type InputProps = {
   clearable?: boolean;
@@ -21,11 +21,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       onValueChange,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [visiblePassword, setVisiblePassword] = useState(false);
-    const [currentValue, setValue] = useState(value ?? "");
-    const isPasswordType = type === "password";
+    const [currentValue, setValue] = useState(value ?? '');
+    const isPasswordType = type === 'password';
     const onChangeHandler = (newValue: string) => {
       setValue(newValue);
       onValueChange?.(newValue);
@@ -35,22 +35,22 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           {...props}
-          type={isPasswordType && visiblePassword ? "text" : type}
+          type={isPasswordType && visiblePassword ? 'text' : type}
           value={currentValue}
           onChange={(e) => onChangeHandler(e.target.value)}
           className={cn(
-            "w-full h-10 border border-gray-300 rounded-md  px-2 outline-none focus-visible:ring focus-visible:ring-primary ",
-            isPasswordType && "pr-10",
-            isPasswordType && "pr-14",
-            clearable && currentValue && "pr-10",
-            !showArrows && "hide-arrows",
-            className
+            'focus-visible:ring-primary h-10 w-full rounded-md border border-gray-300 px-2 outline-none focus-visible:ring',
+            isPasswordType && 'pr-10',
+            isPasswordType && 'pr-14',
+            clearable && currentValue && 'pr-10',
+            !showArrows && 'hide-arrows',
+            className,
           )}
         />
-        <div className="h-full absolute flex items-center gap-1 top-1/2 -translate-y-1/2 right-3">
+        <div className="absolute top-1/2 right-3 flex h-full -translate-y-1/2 items-center gap-1">
           {clearable && currentValue && (
             <button
-              onClick={() => onChangeHandler("")}
+              onClick={() => onChangeHandler('')}
               type="button"
               aria-label="clear"
             >
@@ -69,9 +69,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export default Input;
